@@ -27,7 +27,7 @@ class APIFunctions {
     
     //    Function for fetching Note.
     func fetchNote() {
-        AF.request("http://Add custom address/fetch").response{ response in
+        AF.request("http://Add custom address here/fetch").response{ response in
             
             print(response.data!)
             let data = String(data: response.data!, encoding: .utf8)
@@ -37,7 +37,7 @@ class APIFunctions {
     
     //    Function for adding Note.
     func addNote(date: String, title: String, note: String) {
-        AF.request("http://Add custom address/create", method: .post, encoding: URLEncoding.httpBody, headers: ["title": title, "date": date, "note": note]).responseJSON { response in
+        AF.request("http://Add custom address here/create", method: .post, encoding: URLEncoding.httpBody, headers: ["title": title, "date": date, "note": note]).responseJSON { response in
             
             print(response)
         }
@@ -46,7 +46,7 @@ class APIFunctions {
     //    Function for updating Note.
     func updateNote(date: String, title: String, note: String, id: String){
         
-        AF.request("http://Add custom address/update", method: .post, encoding: URLEncoding.httpBody, headers: ["title": title, "date": date, "note": note, "id": id]).responseJSON{ response in
+        AF.request("http://Add custom address here/update", method: .post, encoding: URLEncoding.httpBody, headers: ["title": title, "date": date, "note": note, "id": id]).responseJSON{ response in
             
             print(response)
         }
@@ -56,7 +56,7 @@ class APIFunctions {
     //    Function for deleting Note.
     func deleteNote(id: String){
         
-        AF.request("http://Add custom address/delete", method: .post, encoding: URLEncoding.httpBody, headers: [ "id": id]).responseJSON{ response in
+        AF.request("http://Add custom address here/delete", method: .post, encoding: URLEncoding.httpBody, headers: [ "id": id]).responseJSON{ response in
             
             print(response)
         }
