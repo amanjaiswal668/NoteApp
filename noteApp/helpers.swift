@@ -27,9 +27,8 @@ class APIFunctions {
     
     //    Function for fetching Note.
     func fetchNote() {
-        AF.request("http://Add custom address here/fetch").response{ response in
-            
-            print(response.data!)
+        AF.request("http://127.0.0.1:8000/fetch").response{ response in
+
             let data = String(data: response.data!, encoding: .utf8)
             self.delegate?.updateArray(newArray: data!)
         }
@@ -37,7 +36,7 @@ class APIFunctions {
     
     //    Function for adding Note.
     func addNote(date: String, title: String, note: String) {
-        AF.request("http://Add custom address here/create", method: .post, encoding: URLEncoding.httpBody, headers: ["title": title, "date": date, "note": note]).responseJSON { response in
+        AF.request("http://127.0.0.1:8000/create", method: .post, encoding: URLEncoding.httpBody, headers: ["title": title, "date": date, "note": note]).responseJSON { response in
             
             print(response)
         }
@@ -46,7 +45,7 @@ class APIFunctions {
     //    Function for updating Note.
     func updateNote(date: String, title: String, note: String, id: String){
         
-        AF.request("http://Add custom address here/update", method: .post, encoding: URLEncoding.httpBody, headers: ["title": title, "date": date, "note": note, "id": id]).responseJSON{ response in
+        AF.request("http://127.0.0.1:8000/update", method: .post, encoding: URLEncoding.httpBody, headers: ["title": title, "date": date, "note": note, "id": id]).responseJSON{ response in
             
             print(response)
         }
@@ -56,7 +55,7 @@ class APIFunctions {
     //    Function for deleting Note.
     func deleteNote(id: String){
         
-        AF.request("http://Add custom address here/delete", method: .post, encoding: URLEncoding.httpBody, headers: [ "id": id]).responseJSON{ response in
+        AF.request("http://127.0.0.1:8000/delete", method: .post, encoding: URLEncoding.httpBody, headers: [ "id": id]).responseJSON{ response in
             
             print(response)
         }
